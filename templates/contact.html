@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}contact page{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+{% block contact %}
+<div class="formwrapper">
+
+  <form action="/contact" method="POST">
+    {{ form.csrf_token }}
+    <br><br><br><br>
+
+    <h1><Strong>Send me a message</strong></h1><br>
+
+    <div class="form-group">
+        {{ form.username.label}}
+        {{ form.username(class="form-control") }}
+        <ul>
+          {% for error in form.username.errors %}
+          <li style="color:red;">{{ error }}</li>
+          {% endfor %}
+        </ul>
+    </div>
+
+    <div class="form-group">
+      {{ form.email.label }}
+      {{ form.email (class="form-control")}}
+      <ul>
+        {% for error in form.email.errors %}
+        <li style="color:red;">{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="form-group">
+      {{ form.messages.label }}
+      {{ form.messages (class="form-control")}}
+      <ul>
+        {% for error in form.messages.errors %}
+        <li style="color:red;">{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <input type="submit" value="submit" class="btn btn-primary">
+
+  </form>
+</div>
+</div>
+{% endblock %}
+  <!-- message form -->
+  <div class="col-sm">
+  <div class="contact-info">
+    <h1><br><strong>Contact information</strong></h1>
+    <ul>
+      <li>Name: Jeremie Izzo</li>
+      <li>Email: izzo.j@hotmailcom</li>
+      <li>Phone: (514)476-6993</li><br>
+      <a href="#" class="fa fa-facebook"></a>
+      <a href="#" class="fa fa-linkedin"></a>
+    </ul>
+  </div>
+  </div>
+  </div>
+  </div>
+{% endblock %}

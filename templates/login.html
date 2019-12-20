@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% for message in get_flashed_messages() %}
+    {{ message }}<br/>
+{% endfor %}
+<form action="/login" method='POST'>
+  <dl>
+
+
+
+    {{ form.csrf_token }}
+    <div class="form-group">
+    {{ form.username.label }}
+    {{ form.username }}
+    </div>
+    <div class="form-group">
+    {{ form.password.label }}
+    {{ form.password }}
+</div>
+    <input type="submit" name="" value="Login">
+
+  </dl>
+
+
+</form>
+
+
+{% endblock %}

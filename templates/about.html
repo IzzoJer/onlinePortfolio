@@ -1,0 +1,35 @@
+{% extends "base.html"%}
+
+{% block title %}about page{% endblock %}
+
+{% block body%}
+<div class="row">
+    <div class="col">
+      <h1 class="mainWelcome">Experiences</h1>
+      <br>
+      <div class="mainabouttext" style = "float: left;">
+      <p><strong>Bain Depot</strong> - Sales & customer service - 2016-Present</p>
+      <p>•  Provided an exceptional customer service.</p>
+      <p>•	Anticipated and responded customer’s needs</p>
+      <p>•	Trained new employees by applying leadership skills</p>
+      <p>•	Promoted Products in various events </p>
+      <p>•	Surpassing objectives established by the company</p>
+      <p>•	Using my problem-solving skills to address customer’s problems</p>
+      </div>
+    </div>
+    <div class="col">
+      <h1 class="mainAboutHeader">Computer Science</h1>
+      <br>
+      {% for doc in doc_list %}
+        <tr class="mainabouttext">
+          <td class="mainabouttext"><strong>{{doc[0]}}</strong></td>
+          <br>
+          {% for col in doc[1:] %}
+            <td class="mainabouttext">{{col}}&nbsp</td>
+          {%  endfor %}
+          <br><br>
+        </tr>
+      {%  endfor %}
+    </div>
+  </div>
+{% endblock %}
